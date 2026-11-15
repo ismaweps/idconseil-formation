@@ -1,0 +1,29 @@
+# Ce dépôt ne doit contenir QUE le site public.
+# Aucun fichier du workspace personnel ne doit s'y retrouver.
+
+# Système
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Brouillons et sauvegardes
+*.bak
+*.tmp
+brouillons/
+prive/
+
+# Documents personnels déposés par erreur dans le dossier
+*.docx
+*.xlsx
+*.pptx
+CV*.pdf
+
+# Outils locaux
+.claude/
+serve.js

@@ -1,0 +1,8 @@
+# ID Conseil
+# Les pages à ne pas indexer portent une balise meta robots noindex.
+# On ne les bloque pas ici : un robot doit pouvoir lire la page pour voir le noindex.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://idconseil-formation.fr/sitemap.xml

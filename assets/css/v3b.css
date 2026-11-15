@@ -1,0 +1,123 @@
+/* ID CONSEIL · compléments v3b (12/11/2026)
+   Photo plus grande, spécialités repliées, frise, retours défilants, étapes en schéma,
+   ouverture au delta. Se charge après v3.css. */
+
+/* ---------- haut de page : la photo prend la moitié */
+.hero-g{grid-template-columns:1.05fr .95fr;align-items:center}
+.hero h1{font-size:clamp(31px,4.4vw,54px);max-width:17ch}
+.portrait img{aspect-ratio:5/6;border-radius:10px 10px 0 0}
+@media (max-width:820px){
+  .hero-g{grid-template-columns:1fr}
+  .portrait{max-width:none}
+  .portrait img{aspect-ratio:4/3;object-position:50% 6%}
+}
+
+/* ---------- spécialités repliées */
+.spes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px;align-items:start}
+.spe{background:#fff;border:1px solid var(--trait);border-radius:10px;padding:24px 24px 20px;cursor:pointer;
+  transition:border-color .2s, box-shadow .2s}
+.spe:hover,.spe:focus-within,.spe.ouvert{border-color:var(--encre);box-shadow:0 10px 30px rgba(22,50,79,.10)}
+.spe svg{width:44px;height:44px;display:block;margin-bottom:14px}
+.spe h3{font-size:24px;margin:0 0 .3em}
+.spe .qui{margin:0;color:var(--texte);font-size:16px}
+.spe .signe{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);
+  margin-top:14px;display:block}
+.spe .plus{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease, opacity .3s ease}
+.spe:hover .plus,.spe:focus-within .plus,.spe.ouvert .plus{max-height:640px;opacity:1}
+.spe:hover .signe,.spe:focus-within .signe,.spe.ouvert .signe{display:none}
+.spe .ex{font-size:15.5px;margin:16px 0 14px;padding-left:14px;border-left:3px solid var(--ambre)}
+.spe h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);
+  margin:14px 0 4px;font-weight:500}
+.spe ul{margin:0;padding:0;list-style:none;font-size:15.5px}
+.spe li{padding:2px 0}
+.spes-note{font-size:15px;color:var(--gris);margin-top:18px}
+@media (max-width:940px){.spes{grid-template-columns:1fr}}
+
+/* ---------- frise du parcours */
+.frise{margin:38px 0 0}
+.frise-l{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;align-items:center;margin-bottom:8px}
+.frise-l span{height:26px;border-radius:4px}
+.b-vente{background:#fff}
+.b-mkt{background:#8FB0CF}
+.b-form{background:var(--ambre)}
+.frise-a{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:#9DB2C6;margin-top:6px}
+.frise-n{font-family:var(--mono);font-size:12px;color:#9DB2C6;letter-spacing:.06em;text-transform:uppercase;margin:0 0 4px}
+.troiscol{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:34px}
+.troiscol h3{font-size:20px;margin:0 0 .35em;display:flex;align-items:center;gap:10px}
+.troiscol h3 i{width:14px;height:14px;border-radius:3px;display:inline-block;flex:none}
+.troiscol p{font-size:16px;margin:0}
+@media (max-width:820px){.troiscol{grid-template-columns:1fr;gap:22px}}
+
+/* ---------- retours */
+.avis3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.avis{margin:0;background:#fff;border:1px solid var(--trait);border-radius:10px;padding:22px 22px 18px;
+  display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.avis p{margin:0;font-size:17px;line-height:1.5}
+.avis footer{font-size:14px;color:var(--gris);line-height:1.4}
+.avis footer b{display:block;color:var(--encre);font-size:15.5px}
+.defile-t{display:flex;justify-content:space-between;align-items:center;margin:34px 0 12px;gap:12px}
+.defile-t span{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+.fleches{display:flex;gap:8px}
+.fleches button{width:40px;height:40px;border-radius:50%;border:1px solid #C9C6C0;background:#fff;color:var(--encre);
+  font-size:18px;cursor:pointer;line-height:1}
+.fleches button:hover{border-color:var(--encre)}
+.defile{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;
+  scrollbar-width:thin;scrollbar-color:#C9C6C0 transparent}
+.defile .avis{flex:0 0 300px;scroll-snap-align:start}
+.defile .avis p{font-size:16px}
+.note-g{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-top:36px;
+  border:1.5px solid var(--ambre);border-radius:10px;padding:24px 30px;background:#fff}
+.note-g b{font-size:clamp(46px,7vw,76px);line-height:1;color:var(--ambre-s);font-weight:600;white-space:nowrap}
+.note-g b small{font-size:.36em;font-family:var(--mono);font-weight:500;color:var(--gris)}
+.note-g p{margin:0;font-size:17px}
+@media (max-width:820px){
+  .avis3{grid-template-columns:1fr}
+  .note-g{grid-template-columns:1fr;gap:8px}
+  .fleches{display:none}
+  .defile .avis{flex-basis:82%}
+}
+
+/* ---------- étapes en schéma */
+.chemin{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:c}
+.chemin li{counter-increment:c;position:relative;padding:54px 22px 0 0}
+.chemin li::before{content:counter(c);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;
+  background:var(--encre);color:#fff;font-family:var(--mono);font-size:15px;display:grid;place-items:center;z-index:1}
+.chemin li::after{content:"";position:absolute;left:38px;right:0;top:18px;height:2px;background:var(--trait)}
+.chemin li:last-child::after{display:none}
+.chemin li:last-child::before{background:var(--ambre);color:#1B1206}
+.chemin strong{display:block;color:var(--encre);font-size:18px;line-height:1.25;margin-bottom:6px}
+.chemin span{font-size:15.5px;color:var(--texte);display:block}
+.duo{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;margin-top:34px;align-items:stretch}
+.duo .garantie{margin:0;display:flex;align-items:center;font-size:18px}
+.duo .offre{padding:24px 26px}
+.duo .offre h3{font-size:20px;margin-bottom:.4em}
+.duo .offre p{font-size:16px;margin-bottom:12px}
+@media (max-width:900px){
+  .chemin{grid-template-columns:1fr}
+  .chemin li{padding:4px 0 22px 54px}
+  .chemin li::after{left:18px;right:auto;top:38px;bottom:0;width:2px;height:auto}
+  .duo{grid-template-columns:1fr}
+}
+
+/* ---------- questions raccourcies */
+.faq .rep{font-size:17px}
+
+/* ---------- ouverture au delta (ordinateur seulement) */
+.ouv{display:none}
+html.intro .voile{display:none}
+html.intro .ouv{display:grid;position:fixed;inset:0;z-index:300;background:var(--ivoire);place-items:center;
+  animation:voile-fin .5s ease 3.6s forwards}
+.ouv svg{width:min(62vh,560px);height:auto;overflow:visible}
+.ouv .ph{opacity:0;animation:apparait .7s ease .1s forwards}
+.ouv .tri{fill:none;stroke:var(--encre);stroke-width:9;stroke-linejoin:round;stroke-linecap:round;
+  stroke-dasharray:1520;stroke-dashoffset:1520;animation:trace 1.7s ease .5s forwards}
+.ouv text{font-family:var(--mono);font-size:19px;letter-spacing:.08em;fill:var(--encre);opacity:0;
+  animation:apparait .5s ease forwards}
+.ouv .t1{animation-delay:.9s}
+.ouv .t2{animation-delay:1.4s}
+.ouv .t3{animation-delay:1.9s}
+.ouv .barre{fill:var(--ambre);transform-origin:300px 540px;transform:scaleX(0);animation:barre .6s ease 2.3s forwards}
+.ouv .nom{font-family:var(--sans);font-weight:600;font-size:22px;letter-spacing:.12em;animation-delay:2.6s}
+.ouv .passer{position:fixed}
+@keyframes trace{to{stroke-dashoffset:0}}
+@keyframes barre{to{transform:scaleX(1)}}
