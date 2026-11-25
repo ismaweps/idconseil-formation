@@ -25,16 +25,12 @@
 <link rel="stylesheet" href="assets/css/v3b.css">
 <link rel="stylesheet" href="assets/css/v4.css">
 <script>
-/* Cinématique : ordinateur seulement, une fois par visite, jamais si les animations sont réduites. */
+/* Animations au défilement, jamais si les animations sont réduites. */
 (function(){try{
   var d = document.documentElement;
   var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var large = window.matchMedia('(min-width: 900px)').matches;
   if(!calme){ d.classList.add('js'); }
-  if(large && !calme && !sessionStorage.getItem('idc-intro') && !location.hash){
-    d.classList.add('intro');
-    sessionStorage.setItem('idc-intro','1');
-  }
 }catch(e){}})();
 </script>
 <script type="application/ld+json">
@@ -74,33 +70,6 @@
 </script>
 </head>
 <body>
-
-<!-- Cinématique d'ouverture : le delta se construit sommet par sommet, le portrait s'y révèle,
-     puis le symbole part se ranger dans le logo de l'en-tête. -->
-<div class="cine" aria-hidden="true">
-  <div class="cine-fond"></div>
-  <div class="cine-scene">
-    <svg viewBox="0 0 600 600" id="cine-svg">
-      <defs><clipPath id="cine-rond"><circle cx="300" cy="350" r="126"/></clipPath></defs>
-      <g class="photo"><image href="assets/img/portrait-serre.jpg" x="150" y="208" width="300" height="400"
-           preserveAspectRatio="xMidYMin slice" clip-path="url(#cine-rond)"/></g>
-      <circle class="anneau" cx="300" cy="350" r="138"/>
-      <path class="cote" id="c1" d="M300 70 L50 500"/>
-      <path class="cote" id="c2" d="M50 500 L550 500"/>
-      <path class="cote" id="c3" d="M550 500 L300 70"/>
-      <circle class="noeud" id="n1" cx="300" cy="70" r="14"/>
-      <circle class="noeud" id="n2" cx="50" cy="500" r="14"/>
-      <circle class="noeud" id="n3" cx="550" cy="500" r="14"/>
-      <text id="t1" x="300" y="36" text-anchor="middle">GESTION DE PROJET</text>
-      <text id="t2" x="22" y="546" text-anchor="start">COMMERCE</text>
-      <text id="t3" x="578" y="546" text-anchor="end">MARKETING</text>
-      <rect class="barre" x="50" y="568" width="500" height="14" rx="7"/>
-    </svg>
-    <p class="cine-nom">ID CONSEIL</p>
-    <p class="cine-base">La performance par la formation</p>
-  </div>
-  <button class="passer" type="button">Passer</button>
-</div>
 
 <a class="saut-lien" href="#contenu">Aller au contenu</a>
 
@@ -176,30 +145,30 @@
           <text class="centre" x="250" y="290">SURVOLEZ</text>
           <text class="centre" x="250" y="312">UN SOMMET</text>
         </svg>
-        <button class="sommet" style="left:50%;top:11%" role="tab" id="tab-projet" aria-controls="pan-projet" aria-selected="true" type="button">Gestion de projet</button>
-        <button class="sommet" style="left:12%;top:87%" role="tab" id="tab-commerce" aria-controls="pan-commerce" aria-selected="false" type="button">Commerce</button>
+        <button class="sommet" style="left:50%;top:11%" role="tab" id="tab-commerce" aria-controls="pan-commerce" aria-selected="true" type="button">Performance commerciale</button>
+        <button class="sommet" style="left:12%;top:87%" role="tab" id="tab-projet" aria-controls="pan-projet" aria-selected="false" type="button">Management de projet</button>
         <button class="sommet" style="left:88%;top:87%" role="tab" id="tab-marketing" aria-controls="pan-marketing" aria-selected="false" type="button">Marketing</button>
       </div>
 
       <div class="pan">
-        <div role="tabpanel" id="pan-projet" aria-labelledby="tab-projet">
-          <h3>Gestion de projet</h3>
-          <p class="qui">Pour ceux qui pilotent sans en avoir le titre, ou sans en avoir l'autorité.</p>
-          <p class="ex">Un chargé de projet sans aucune autorité hiérarchique : nous avons travaillé la façon de demander, de dire non et d'expliquer le pourquoi.</p>
-          <div class="niv">
-            <div><h4>Découvrir</h4><ul><li>Travailler en mode projet</li><li>Chef de projet occasionnel</li></ul></div>
-            <div><h4>Maîtriser</h4><ul><li>Management de projet, niveaux 1 et 2</li><li>Coûts et délais</li><li>Risques</li></ul></div>
-            <div><h4>Entraîner</h4><ul><li>Leadership en mode projet</li><li>Accompagner le changement</li><li>Fonction de tuteur</li></ul></div>
-          </div>
-        </div>
-        <div role="tabpanel" id="pan-commerce" aria-labelledby="tab-commerce" hidden>
-          <h3>Commerce</h3>
+        <div role="tabpanel" id="pan-commerce" aria-labelledby="tab-commerce">
+          <h3>Performance commerciale</h3>
           <p class="qui">Pour ceux qui vendent sans être vendeurs, et pour les vendeurs qui veulent retrouver une méthode.</p>
           <p class="ex">Négocier un droit de passage avec un barème fixe : nous avons listé tout ce qui se négocie quand le prix ne bouge pas.</p>
           <div class="niv">
             <div><h4>Poser les bases</h4><ul><li>Vente en face-à-face</li><li>Maîtrise commerciale pour non-commerciaux</li><li>Prospecter</li></ul></div>
             <div><h4>Aller plus loin</h4><ul><li>Négociation commerciale</li><li>Bases du contrat commercial</li></ul></div>
             <div><h4>En direct</h4><ul><li><a href="techniciens.html">Vente additionnelle pour techniciens</a></li></ul></div>
+          </div>
+        </div>
+        <div role="tabpanel" id="pan-projet" aria-labelledby="tab-projet" hidden>
+          <h3>Management de projet</h3>
+          <p class="qui">Pour ceux qui pilotent sans en avoir le titre, ou sans en avoir l'autorité.</p>
+          <p class="ex">Un chargé de projet sans aucune autorité hiérarchique : nous avons travaillé la façon de demander, de dire non et d'expliquer le pourquoi.</p>
+          <div class="niv">
+            <div><h4>Découvrir</h4><ul><li>Travailler en mode projet</li><li>Chef de projet occasionnel</li></ul></div>
+            <div><h4>Maîtriser</h4><ul><li>Management de projet, niveaux 1 et 2</li><li>Coûts et délais</li><li>Risques</li></ul></div>
+            <div><h4>Entraîner</h4><ul><li>Leadership en mode projet</li><li>Accompagner le changement</li><li>Fonction de tuteur</li><li>Recadrer ou débriefer un collaborateur</li></ul></div>
           </div>
         </div>
         <div role="tabpanel" id="pan-marketing" aria-labelledby="tab-marketing" hidden>
@@ -389,9 +358,22 @@
   <svg class="filigrane" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 12 L90 80 L10 80 Z"/></svg>
   <div class="wrap">
     <h2>Trente minutes. Vous me décrivez la situation, je vous dis si une formation y changera quelque chose.</h2>
-    <div class="actions">
-      <a class="btn" href="mailto:contact@idconseil-formation.fr?subject=%C3%89change%20de%2030%20minutes">Réserver par e-mail</a>
-      <a class="btn btn-2" href="tel:+33699063809">06 99 06 38 09</a>
+    <div class="choix">
+      <a class="option" href="mailto:contact@idconseil-formation.fr?subject=Demande%20de%20cr%C3%A9neau%20%3A%20%C3%A9change%20de%2030%20minutes&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20un%20%C3%A9change%20de%2030%20minutes.%0A%0AMes%20disponibilit%C3%A9s%20%28deux%20ou%20trois%20cr%C3%A9neaux%29%20%3A%0A-%20%0A-%20%0A%0APar%20t%C3%A9l%C3%A9phone%20ou%20en%20visio%20%3A%0A%0AMon%20entreprise%20et%20ma%20fonction%20%3A%0A%0ACordialement%2C">
+        <b>Demander un créneau</b>
+        <span>Un e-mail prêt à envoyer : indiquez deux ou trois disponibilités, je confirme sous 24 heures ouvrées.</span>
+        <em>Proposer mes disponibilités →</em>
+      </a>
+      <a class="option" href="mailto:contact@idconseil-formation.fr?subject=%C3%89change%20de%2030%20minutes&amp;body=Bonjour%2C%0A%0APour%20pr%C3%A9parer%20notre%20%C3%A9change%20%3A%0A%0A1.%20Quelle%20%C3%A9quipe%20est%20concern%C3%A9e%20%28m%C3%A9tier%2C%20nombre%20de%20personnes%29%20%3F%0A%0A2.%20Quelle%20situation%20voulez-vous%20faire%20%C3%A9voluer%20%3F%0A%0A3.%20Dans%20quel%20d%C3%A9lai%20%3F%0A%0ACordialement%2C">
+        <b>Décrire votre situation</b>
+        <span>Trois questions pour préparer l'échange. Je vous réponds avec une première lecture.</span>
+        <em>Écrire à contact@idconseil-formation.fr →</em>
+      </a>
+      <a class="option" href="tel:+33699063809">
+        <b>M'appeler directement</b>
+        <span>Du lundi au vendredi. Si je suis en formation, je vous rappelle le jour même.</span>
+        <em>06 99 06 38 09 →</em>
+      </a>
     </div>
   </div>
 </section>
