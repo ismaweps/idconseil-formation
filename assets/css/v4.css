@@ -187,3 +187,6 @@ html.intro .cine{display:grid;position:fixed;inset:0;z-index:300;place-items:cen
   border-radius:14px;background:#fff;border:1px solid var(--trait)}
 .relance p{margin:0;font-weight:600;color:var(--encre);font-size:18px}
 @media (max-width:600px){.relance .btn{width:100%;text-align:center}}
+
+/* Jauge : le chiffre est centré dans le cercle, pas sur le cercle et sa légende */
+.jauge b{inset:0 0 auto 0;aspect-ratio:1/1}
