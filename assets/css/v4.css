@@ -168,17 +168,22 @@ html.intro .cine{display:grid;position:fixed;inset:0;z-index:300;place-items:cen
 /* le pointillé s'arrête à la quatrième étape */
 .route svg{width:calc(75% + 30px)}
 
-/* Contact : trois façons de prendre l'échange */
-.contact .choix{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-.contact .option{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:14px;text-decoration:none;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#fff;transition:background .2s,transform .2s}
-.contact .option:hover,.contact .option:focus-visible{background:rgba(255,255,255,.12);transform:translateY(-2px)}
-.contact .option b{font-size:19px;font-weight:600}
-.contact .option span{font-size:15px;line-height:1.5;color:rgba(255,255,255,.82)}
-.contact .option em{margin-top:auto;font-style:normal;font-weight:600;color:var(--ambre);font-size:15px;overflow-wrap:anywhere}
-@media (max-width:860px){.contact .choix{grid-template-columns:1fr}}
 /* Mobile : les étiquettes du bas restent dans l'écran */
 @media (max-width:600px){
   .tri #tab-projet{left:0!important;transform:translate(0,-50%)}
   .tri #tab-marketing{left:auto!important;right:0;transform:translate(0,-50%)}
 }
+
+/* Contact : deux boutons, l'adresse en secours */
+.contact .contact-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.contact .contact-btns .btn{font-size:17px;padding:16px 28px}
+.contact .contact-btns .btn-2{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.contact .contact-btns .btn-2:hover{background:#fff;color:var(--encre);border-color:#fff}
+.contact .adresse{margin:16px 0 0;font-size:14px;color:rgba(255,255,255,.72)}
+.contact .adresse a{color:#fff}
+@media (max-width:600px){.contact .contact-btns .btn{width:100%;text-align:center}}
+/* Relances entre les sections */
+.relance{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:40px;padding:22px 26px;
+  border-radius:14px;background:#fff;border:1px solid var(--trait)}
+.relance p{margin:0;font-weight:600;color:var(--encre);font-size:18px}
+@media (max-width:600px){.relance .btn{width:100%;text-align:center}}
